@@ -10,12 +10,12 @@
   <div>
    <div id="productos-landings">
     <template v-for="(product, index) in products" :key="index">
+     <img v-bind:src=`https://www.pcfactory.cl/${product.thumbnail}` alt="" />
      <h1 class="my-5">{{product.nombre}}</h1>
      <p>id: {{product.id}}</p>
     </template>
    </div>
   </div>
-
   <script
    src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.js"
    integrity="sha512-JwcZ6ApNnuNMW/djB3vPh2HpDRq4HkNE4pckP9uNhTyEW6V5NhspLu3T6ciFSz//J4sMMwtzxW5Tg+D/Ptx00w=="
