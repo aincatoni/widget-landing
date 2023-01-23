@@ -53,19 +53,19 @@
         console.log(e);
        });
      },
-     consumingProducFromDatas: function () {
-      console.log(this.datasources);
+     consumingProducts: function () {
+      console.log("probando");
+      this.products = this.datasources;
      },
     },
-    beforeCreate: function () {
+
+    created: function () {
      this.consumingDataSources();
     },
-    created: function () {},
-    mounted: function () {
-     this.consumingProducFromDatas();
+    updated: function () {
+     this.consumingProducts();
     },
    });
-   /* Vue.config.devtools = tru; */
   </script>
  </body>
 </html>
