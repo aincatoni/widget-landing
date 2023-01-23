@@ -54,17 +54,18 @@
        });
      },
      consumingProducts: function () {
-      console.log("probando");
-      this.products = this.datasources;
-
-      axios
-       .get(
-        `https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad/${this.datasources.dataSource}`
-       )
-       .then((response) => {
-        console.log(response);
-       })
-       .catch();
+       let arraydatas = map.(this.datasources.dataSource);
+       console.log(arraydatas);
+      for (data in this.datasources) {
+       axios
+        .get(
+         `https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad/${data}`
+        )
+        .then((response) => {
+         /* console.log(response); */
+        })
+        .catch();
+      }
      },
     },
 
