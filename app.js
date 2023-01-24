@@ -13,7 +13,6 @@ new Vue({
      "https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad"
     )
     .then((response) => {
-     /* console.log(response.data); */
      this.datasources = response.data;
     })
     .catch((e) => {
@@ -21,19 +20,21 @@ new Vue({
     });
   },
   consumingProducts: function () {
-   for (data in this.datasources) {
+   let arrDatas = this.datasources.map((data) => data.dataSource);
+
+   for (datasource in arrDatas) {
     axios
      .get(
-      `https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad/${data}`
+      `https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad/${datasource}`
      )
      .then((response) => {
-      /* console.log(response); */
+      this.products = response.data.content.items;
+      console.log(this.products);
      })
      .catch();
    }
   },
  },
-
  created: function () {
   this.consumingDataSources();
  },
