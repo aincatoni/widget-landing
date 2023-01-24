@@ -21,15 +21,15 @@ new Vue({
   },
   consumingProducts: function () {
    let arrDatas = this.datasources.map((data) => data.dataSource);
-
+   let arrproducts = [];
+   this.products = arrproducts;
    for (datasource in arrDatas) {
     axios
      .get(
       `https://stoplight.io/mocks/modyo/pcfactory-documentation/79796109/campanas/navidad/${datasource}`
      )
      .then((response) => {
-      this.products = response.data.content.items;
-      console.log(this.products);
+      arrproducts.push(response.data.content.items);
      })
      .catch();
    }
@@ -38,7 +38,7 @@ new Vue({
  created: function () {
   this.consumingDataSources();
  },
- updated: function () {
+ beforeUpdate: function () {
   this.consumingProducts();
  },
 });
