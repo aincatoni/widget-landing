@@ -9,14 +9,11 @@
   <body>
     <div>
       <div id="productos-landings">
-        <template v-for="datasource in datasources" v-for="product in products">
-          <!-- <img v-bind:src=`https://www.pcfactory.cl/${product.thumbnail}` alt="" /> -->
+        <template>
           <div>
-            <h1>{{datasource.title}}</h1>
+            <h1 v-for="datasource in datasources">{{datasource.title}}</h1>
+            <!--  <p v-for="product in products">{{products.nombre}}</p> -->
           </div>
-
-          <h1 class="my-5">{{product.nombre}}</h1>
-          <p>id: {{product.id}}</p>
         </template>
       </div>
     </div>
